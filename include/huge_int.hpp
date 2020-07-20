@@ -1,6 +1,7 @@
+#include <exception>
 #include <iostream>
 #include <string>
-#include <exception>
+
 
 // Huge_int by ZTL
 class huge_int {
@@ -163,21 +164,21 @@ class huge_int {
     }
     // Operator []
     inline int operator[](const size_t __index) {
-        if (__index >= this->bits.size()) 
+        if (__index >= this->bits.size())
             throw std::range_error("[HugeInt - operator[]] Index out of range");
-			
+
         return this->bits[__index] - '0';
     }
-	
+
     /**
 	 * @brief Convert huge_int to int
 	 * @return int: the val of huge_int
 	 * @throw overflow_error, which in case the int is bigger than INT_MAX
 	 */
     inline int export_int() {
-        if (bigger(this->bits, "2147483647")) 
-			throw std::overflow_error("[HugeInt - export_int] Interger lager than INT_MAX");
-		
+        if (bigger(this->bits, "2147483647"))
+            throw std::overflow_error("[HugeInt - export_int] Interger lager than INT_MAX");
+
         int ans = 0;
         int bit = 1;
         for (int i = this->size() - 1; i >= 0; i--) {
