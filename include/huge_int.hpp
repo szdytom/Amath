@@ -171,7 +171,7 @@ class huge_int {
 	
     /**
 	 * @brief Convert huge_int to int
-	 * @return int the val of huge_int
+	 * @return int: the val of huge_int
 	 * @throw overflow_error, which in case the int is bigger than INT_MAX
 	 */
     inline int export_int() {
